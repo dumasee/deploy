@@ -1,0 +1,21 @@
+# This is the network config written by 'subiquity'
+network:
+  bonds:
+    bond0:
+      addresses:
+      - 10.11.0.14/16
+      gateway4: 10.11.0.1
+      interfaces:
+      - enp3s0
+      - enp4s0
+      nameservers:
+        addresses:
+        - 223.5.5.5
+      parameters:
+        lacp-rate: fast
+        mode: 802.3ad
+        transmit-hash-policy: layer2
+  ethernets:
+    enp3s0: {}
+    enp4s0: {}
+  version: 2
