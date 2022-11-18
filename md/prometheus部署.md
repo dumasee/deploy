@@ -1,11 +1,10 @@
 ## 链接
 ```
-http://111.0.121.226:13080/linux/prometheus/node_exporter-1.1.1.linux-amd64.tar.gz
-http://111.0.121.226:3080/linux/prometheus/prometheus-2.25.0.linux-amd64.tar.gz
-http://111.0.121.226:3080/linux/prometheus/alertmanager-0.21.0.linux-amd64.tar.gz
-http://111.0.121.226:3080/linux/prometheus/grafana-7.4.2.linux-amd64.tar.gz
-http://111.0.121.226:3080/linux/prometheus/grafana-8.3.7.linux-amd64.tar.gz
-https://github.com/prometheus/node_exporter/releases/download/v1.1.1/node_exporter-1.1.1.linux-amd64.tar.gz
+http://111.0.121.226:13080/linux/prometheus/node_exporter-1.4.0.linux-amd64.tar.gz
+http://111.0.121.226:13080/linux/prometheus/prometheus-2.25.0.linux-amd64.tar.gz
+http://111.0.121.226:13080/linux/prometheus/alertmanager-0.21.0.linux-amd64.tar.gz
+http://111.0.121.226:13080/linux/prometheus/grafana-8.3.7.linux-amd64.tar.gz
+https://github.com/prometheus/node_exporter/releases/download/v1.4.0/node_exporter-1.4.0.linux-amd64.tar.gz
 https://dl.grafana.com/oss/release/grafana-8.3.7.linux-amd64.tar.gz
 ```
 
