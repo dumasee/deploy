@@ -38,4 +38,5 @@ http://106.14.181.34:8081
 /home/yuanqiu_test
 /opt/yuanqiu_test
 ```
+redis部署在元球app1上。  
 测试db连的是192.168.13.32，做了公网端口映射。
