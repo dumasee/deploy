@@ -60,8 +60,8 @@ lotus-miner backup /mnt/lotus-miner_back.cbor
 ## 机器2 设置环境变量  （略过）
 vi /etc/profile
 ```
-export SSD_PATH=/mnt/nvme1
-export LOTUS_PATH="$SSD_PATH/lotus-data/"
+export SSD_PATH=/mnt/nvme2
+export LOTUS_PATH="/mnt/nvme1/lotus-data/"
 export LOTUS_MINER_PATH="$SSD_PATH/lotus-miner-data/"
 export LOTUS_STORAGE_PATH="$SSD_PATH/lotusstorage"
 export WORKER_PATH="$SSD_PATH/lotusworker"
@@ -115,7 +115,7 @@ chown -R eb:root /mnt/nvme1/lotus-miner-data/
 curl -sI https://fil-chain-snapshots-fallback.s3.amazonaws.com/mainnet/minimal_finality_stateroots_latest.car | perl -ne '/x-amz-website-redirect-location:\s(.+)\.car/ && print "$1.sha256sum\n$1.car"' | xargs wget
 ```
 
-- miner机导出（推荐）
+- miner机导出（推荐）  
 ```
 lotus chain export --recent-stateroots=901 --skip-old-msgs snapshot_2022.08.26.car
 ```
@@ -127,8 +127,8 @@ lotus chain export --recent-stateroots=901 --skip-old-msgs snapshot_2022.08.26.c
 wget -c http://115.236.19.69:3080/snapshot_2022.10.19.car
 ```
 
-2. 从快照启动daemon <br>
-检查`$LOTUS_PATH`目录是否为空，如不是则将`config.toml、keystore`等文件备份后清空目录。
+2. 从快照启动daemon  
+检查`$LOTUS_PATH`目录是否为空，如不是则将`config.toml、keystore`等文件备份后清空目录。  
 ```
 su - eb
 lotus daemon --halt-after-import --import-snapshot <filename>
