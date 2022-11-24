@@ -59,6 +59,6 @@ svnserve -d -r /mnt/svn/project --listen-port 6666
 ## svn命令
 ```
 svn checkout  svn://47.93.220.40:9999/项目列表/四海一家 --username=yank
-svn update
+svn update   #将远程库更新到本地
 svn log|more
 ```
