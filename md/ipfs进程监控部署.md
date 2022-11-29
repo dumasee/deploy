@@ -5,10 +5,11 @@
 */1 * * * * mkdir -p /tmp/textcollector && bash /opt/deploy/megacli.sh | sponge /tmp/textcollector/megacli.prom
 ```
 
-### 进程监控，docker监控
+### 进程监控，Nvidia状态监控
 - process monitor (for worker, super, miner etc..)
 ```
 */1 * * * * mkdir -p /tmp/textcollector && bash /opt/process_monitor.sh | sponge /tmp/textcollector/processmonitor.prom
+*/1 * * * * bash /opt/exporter_start.sh
 ```
 
 - for promethues, alertmanager
