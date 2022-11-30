@@ -1,6 +1,7 @@
 ## 链接
 ```
 http://111.0.121.226:13080/linux/prometheus/node_exporter-1.4.0.linux-amd64.tar.gz
+http://111.0.121.226:13080/linux/prometheus/mysqld_exporter-0.14.0.linux-amd64.tar.gz
 http://111.0.121.226:13080/linux/prometheus/prometheus-2.25.0.linux-amd64.tar.gz
 http://111.0.121.226:13080/linux/prometheus/alertmanager-0.21.0.linux-amd64.tar.gz
 http://111.0.121.226:13080/linux/prometheus/grafana-8.3.7.linux-amd64.tar.gz
@@ -22,10 +23,11 @@ vi /opt/prometheus-2.23.0.linux-amd64/prometheus.yml
 cd /opt/prometheus-2.23.0.linux-amd64/
 nohup ./prometheus &  
 ```
+`端口号：9090`
 
 ## alertmanager
 1. 默认监听端口号  
-9093 9094  
+`9093 9094` 
 
 2. 规则文件   
 vim /opt/prometheus-2.23.0.linux-amd64/rules.yml  
@@ -50,4 +52,29 @@ https://grafana.com/grafana/dashboards
 
 登录grafana管理页面  
 导入Prometheus仪表版，Dashboards–Manage–import  
-在 Granfana.com-Dashboard中填写 11074，点击load即可。  
+在 Granfana.com-Dashboard中填写 11074，点击load即可。
+```  
+Node Exporter for Prometheus Dashboard EN 20201010: 11074
+Mysql overview: 7362
+```
+
+## mysql export
+1. 创建监控帐号  
+```
+grant select,replication client, process on *.* to 'mysql_monitor'@'localhost' identified by '123';
+flush privileges;
+```
+
+2. 编辑配置  
+vim /root/.my.cnf
+```
+[client]
+user=mysql_monitor
+password=123
+```
+
+3. 启动  
+```
+nohup ./mysqld_exporter &
+```
+`端口号：9104`
