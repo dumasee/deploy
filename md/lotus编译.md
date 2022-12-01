@@ -9,7 +9,7 @@ https://github.com/filecoin-project/lotus
 21.122 ubuntu22.04  该系统版本下没编译过。
 ```
 
-说明：ubuntu18.04下面编译的可以在20.04版本下运行。  
+说明：ubuntu18.04下面编译生成的二进制程序，可以在20.04版本下运行。  
 
 
 ## 步骤
@@ -32,7 +32,7 @@ echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile && source /etc/profil
 ```
 git clone https://github.com/filecoin-project/lotus.git
 cd lotus/
-git checkout v1.18.0
+git checkout v1.18.1
 
 make clean all    #编译
 make install     #安装

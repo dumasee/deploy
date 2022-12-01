@@ -18,9 +18,8 @@ bash install.sh
 域名证书需提前申请   
 
 
-## 链接分享
 xtls-rprx-origin  
-xtls-rprx-direct  选这个  
+xtls-rprx-direct  <选这个>  
 
 
 ## 命令
