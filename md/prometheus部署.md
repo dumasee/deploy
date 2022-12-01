@@ -58,7 +58,7 @@ Node Exporter for Prometheus Dashboard EN 20201010: 11074
 Mysql overview: 7362
 ```
 
-## mysql export
+## mysqld_exporter
 1. 创建监控帐号  
 ```
 grant select,replication client, process on *.* to 'mysql_monitor'@'localhost' identified by '123';
