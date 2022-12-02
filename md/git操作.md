@@ -90,6 +90,14 @@ error: failed to push some refs to 'github.com:dumasee/tech_doc.git'
 git pull --rebase origin main
 ```
 
+- git pull时报错，提示远程分支不存在
+日志：
+```
+Your configuration specifies to merge with the ref 'refs/heads/redesign'
+from the remote, but no such ref was fetched.
+```
+处理：  
+使用命令行拉取新分支代码前使用：git fetch -p 获取最新分支 然后获取远程分支代码
 
 
 ## svn迁移到git

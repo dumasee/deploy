@@ -68,15 +68,18 @@ systemctl disable xxx.service
 
 systemctl status xxx.service
 ```
-
-
+## 监控流量
+```
+iftop -i eth0 -nNP  #实时查看端口流量速率
+nethogs eth0 -d 5   #实时显示进程流量速率
+iptraf     #实时统计网络端口收发包数量、大小。
+```
 ## 其它
 ```
 select-editor    #指定默认编辑器
 last -i   #查看登录日志
 df -hT   #查看各分区磁盘占用
 vmstat 2 1   #查看内存、cpu负载
-iftop -i eth0 -nNP   #查看流量流向
 jps -l   #列出所有java进程
 killall java   #kill掉所有java进程
 pkill -kill -t <tty值>   #强制某登录用户退出
