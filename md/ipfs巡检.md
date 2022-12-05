@@ -310,7 +310,7 @@ bash autopledge.sh
 ## 扇区延期
 1. 查询最近1个月到期的扇区
 ```
-lotus-miner sectors list|egrep 'in [1-4] weeks'|more
+lotus-miner sectors list|egrep 'in [1-3] weeks'|more
 ```
 2. 延期命令
 ```
