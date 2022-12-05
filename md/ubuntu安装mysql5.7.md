@@ -45,7 +45,7 @@ mysql_secure_installation
 
 ## 允许远程
 ```
-# grant all privileges on *.* to root@'%' identified by '8l4Q_0fK7wDS';  
+# grant all privileges on *.* to root@'%' identified by 'xxxxxx';  
 # flush privileges;
 ```
 
