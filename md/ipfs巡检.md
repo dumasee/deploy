@@ -1,6 +1,6 @@
 
 
-<!-- 更新日期：2022.11.07 -->
+<!-- 更新日期：2022.12.5 -->
 
 ## 操作步骤
 - 查看进程，判断lotus-miner进程对应的帐号
@@ -127,11 +127,6 @@ deadline  partition  sectors
 6         0          14596
 6         0          14597
 6         0          14598
-6         0          14599
-6         0          14600
-8         0          14601
-8         0          14602
-8         0          14603
 
 root@minerAnShan2:~# lotus-miner proving check --slow 8
 deadline  partition  sector  status
@@ -316,6 +311,8 @@ lotus-miner sectors list|egrep 'in [1-3] weeks'|more
 ```
 su - eb
 lotus-miner sectors renew --really-do-it
+lotus-miner sectors renew --sector-file=sectors-1.txt --really-do-it
 ```
-延期操作需要消耗FIL，操作成功会上发`ExtendSectorExpiration`消息。
+延期操作需要消耗FIL，操作成功会上发`ExtendSectorExpiration`消息。  
+若需要延期的扇区数量过多（超过1万个），则需要分开操作。
 
