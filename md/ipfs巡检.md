@@ -311,8 +311,9 @@ lotus-miner sectors list|egrep 'in [1-3] weeks'|more
 ```
 su - eb
 lotus-miner sectors renew --really-do-it
-lotus-miner sectors renew --sector-file=sectors-1.txt --really-do-it
 ```
 延期操作需要消耗FIL，操作成功会上发`ExtendSectorExpiration`消息。  
-若需要延期的扇区数量过多（超过1万个），则需要分开操作。
-
+若需要延期的扇区数量过多（超过1万个），可以分多步操作并指定需要操作的扇区号：
+```
+lotus-miner sectors renew --sector-file=sectors-1.txt --really-do-it
+```
