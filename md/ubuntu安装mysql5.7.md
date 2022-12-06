@@ -45,11 +45,17 @@ mysql_secure_installation
 
 ## 允许远程
 ```
-# grant all privileges on *.* to root@'%' identified by 'xxxxxx';  
-# flush privileges;
+grant all privileges on *.* to root@'%' identified by 'xxxxxx';  
+flush privileges;
 ```
 
 ## 重启进程
 ```
 /etc/init.d/mysql restart
+```
+
+## 更改最大连接数
+```
+set GLOBAL max_connections=10000;
+show variables like "%connections%";  #查看更改结果
 ```
