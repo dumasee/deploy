@@ -24,8 +24,8 @@ rpcallowip=0.0.0.0/0
 listen=1
 server=1
 rpcbind=0.0.0.0
-addnode=172.30.216.87
-addnode=172.30.216.88
+addnode=172.30.173.169
+addnode=172.30.173.170
 ```
 
 4. 运行  
@@ -38,9 +38,15 @@ cd /root/fen/ && ./fend.sh -staking=1 -daemon -rpcthreads=100
 ```
 ./fen-cli.sh getnewaddress  
 ```
-手动出块（需手动执行多次，直至挖矿开启。）：  
+手动出块（需手动执行多次，直至挖矿开启。）  
+<执行脚本即可：>   
 ```
-./fen-cli.sh generate 1000
+for i in {1..35}
+do
+#/bin/sleep 1
+./fen-cli.sh generate 100
+echo
+done
 ```
 
 ## 命令
