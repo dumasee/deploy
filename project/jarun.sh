@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #     
-#     runjar.sh @ Version 0.13
+#     jarun.sh @ Version 0.17
 #     date: 2022.12.08
 
 
-APP_NAME=yb-digital-1.0.0.jar
-APP_PORTS="8091 8092"
+APP_NAME=yb-digital-fanyuzhou-1.0.0.jar
+APP_PORTS="8082 "   #多个端口以空格隔开
 
 
 is_exist(){
@@ -61,17 +61,25 @@ stop(){
   done
   return 0
 }
+
+usage(){
+  echo Usage:
+  echo "$0 <start|stop>"
+  return 0
+}
  
 
 if [ $# -eq 0 ];then
-    echo "Usage: sh 执行脚本.sh [start|stop]"
-    exit
+    usage
+    exit 0
 fi
 
 if [ $1 = "start" ];then
     start
+    exit 0
 fi
 
 if [ $1 = "stop" ];then
     stop
+    exit 0
 fi
