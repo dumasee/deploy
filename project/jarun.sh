@@ -1,17 +1,19 @@
 #!/bin/bash
 
 #     
-#     jarun.sh @ Version 0.17
+#     jarun.sh @ Version 0.31
 #     date: 2022.12.08
 
 
-APP_NAME=yb-digital-fanyuzhou-1.0.0.jar
-APP_PORTS="8082 "   #多个端口以空格隔开
+readonly APP_NAME=test-digital-1.0.0.jar
+readonly APP_PORTS="8091 8092 "   #多个端口以空格隔开
+readonly MODE=prod    # dev/test/prod
 
 
 is_exist(){
-  local port=$1
-  local pid=`ps -ef|grep $APP_NAME | grep java | grep $port | grep -v grep|awk '{print $2}'`
+  local jarname=$1
+  local port=$2
+  local pid=`ps -ef|grep $jarname | grep java | grep $port | grep -v grep|awk '{print $2}'`
   #如果不存在返回1，存在返回0
   if [ -z "${pid}" ]; then
     return 1
@@ -20,27 +22,41 @@ is_exist(){
   fi
 }
 
-start1(){
-  local port=$1
-  is_exist $port
+
+start_jar(){
+  local jarname=$1
+  local port=$2
+  is_exist $jarname $port
   if [ $? -eq "0" ];then
-    echo already running: $port
+    echo $jarname $port  [already running]
   else
     mv $port.log "$port.log.`date +'%F-%T'`"
-    nohup java -jar -Dspring.profiles.active=prod $APP_NAME --spring.profiles.active=prod --server.port=$port 2>&1 >> $port.log &
-    echo started: $port
+    nohup java -jar -Dspring.profiles.active=$MODE $jarname --spring.profiles.active=$MODE --server.port=$port > $port.log 2>&1 &
+    echo $jarname $port  [started.]
   fi
 }
  
 
-stop1(){
-  local port=$1
-  local pid=$(ps -ef|grep $APP_NAME | grep java | grep $port | grep -v grep|awk '{print $2}')
-  is_exist $port
+stop_jar(){
+  local jarname=$1
+  local port=$2
+  local pid=$(ps -ef|grep $jarname | grep java | grep $port | grep -v grep|awk '{print $2}')
+  is_exist $jarname $port
   if [ $? -eq "0" ];then
-    kill -9 $pid && echo stoped: $port
+    kill -9 $pid && echo $jarname $port  [stoped.]
   else
-    echo not running: $port
+    echo $jarname $port  [not running]
+  fi
+}
+
+status_jar(){
+  local jarname=$1
+  local port=$2
+  is_exist $jarname $port
+  if [ $? -eq "0" ];then
+    echo $jarname $port  [running]
+  else
+    echo $jarname $port  [down]
   fi
 }
  
@@ -48,7 +64,7 @@ stop1(){
 start(){
   for i in $APP_PORTS
   do
-    start1 $i
+    start_jar $APP_NAME $i
   done
   return 0
 }
@@ -57,14 +73,23 @@ start(){
 stop(){
   for i in $APP_PORTS
   do
-    stop1 $i
+    stop_jar $APP_NAME $i
+  done
+  return 0
+}
+
+#状态
+status(){
+  for i in $APP_PORTS
+  do
+    status_jar $APP_NAME $i
   done
   return 0
 }
 
 usage(){
   echo Usage:
-  echo "$0 <start|stop>"
+  echo "$0 <start|stop|status>"
   return 0
 }
  
@@ -81,5 +106,10 @@ fi
 
 if [ $1 = "stop" ];then
     stop
+    exit 0
+fi
+
+if [ $1 = "status" ];then
+    status
     exit 0
 fi
