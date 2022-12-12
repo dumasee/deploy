@@ -61,7 +61,7 @@ Mysql overview: 7362
 ## mysqld_exporter
 1. 创建监控帐号  
 ```
-grant select,replication client, process on *.* to 'mysql_monitor'@'localhost' identified by '123';
+grant select,replication client, process on *.* to 'mysql_monitor'@'localhost' identified by 'abcde234';
 flush privileges;
 ```
 
@@ -70,7 +70,7 @@ vim /root/.my.cnf
 ```
 [client]
 user=mysql_monitor
-password=123
+password=abcde234
 ```
 
 3. 启动  
