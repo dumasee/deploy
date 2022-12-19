@@ -32,7 +32,7 @@ echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile && source /etc/profil
 ```
 git clone https://github.com/filecoin-project/lotus.git
 cd lotus/
-git checkout v1.18.2
+git checkout v1.19.0
 
 make clean all    #编译
 make install     #安装

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #     
-#     lotus_deploy.sh @ Version 0.25
+#     lotus_deploy.sh @ Version 0.27
 #     date: 2022.04.28
 
 readonly myHttpServer=192.168.22.9:3080
@@ -16,8 +16,9 @@ readonly myHttpServer=192.168.22.9:3080
 #lotus-1.18.0 for ubuntu18.04
 #lotus-1.18.1 for ubuntu18.04
 #lotus-1.18.2 for ubuntu18.04
+#lotus-1.19.0 for ubuntu18.04
 
-readonly f=lotus-1.18.2-bin_ubuntu1804_amd.tar.gz
+readonly f=lotus-1.19.0-bin_ubuntu1804_amd.tar.gz
 cd /usr/local/bin/
 wget -c $myHttpServer/lotus/$f
 tar zxvf $f

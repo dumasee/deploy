@@ -129,3 +129,8 @@ git push giteb main
 - 用户总仓库容量上限：5G
 - 公有仓库成员数量不限
 - 个人帐号下所有私有库总的协作人数为5人
+
+
+## github添加私钥
+目录： C:\Users\windows帐号名\.ssh  
+将id_rsa 私钥文件添加至该目录下。  
