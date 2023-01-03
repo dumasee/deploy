@@ -313,7 +313,12 @@ su - eb
 lotus-miner sectors renew --really-do-it
 ```
 延期操作需要消耗FIL，操作成功会上发`ExtendSectorExpiration`消息。  
-若需要延期的扇区数量过多（超过1万个），可以分多步操作并指定需要操作的扇区号：
+若需要延期的扇区数量过多（超过1万个），可以分多步操作并指定需要操作的扇区号：  
 ```
 lotus-miner sectors renew --sector-file=sectors-1.txt --really-do-it
+```
+
+错误日志：  
+```
+Renewing 12940 sectors: ERROR: mpool push message: mpool push: failed to push message: message not valid for block inclusion: 'GasLimit' field cannot be greater than a block's gas limit (11466528767 > 10000000000)
 ```
