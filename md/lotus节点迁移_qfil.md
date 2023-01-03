@@ -124,7 +124,7 @@ lotus chain export --recent-stateroots=901 --skip-old-msgs snapshot_2022.08.26.c
 
 - 下载
 ```
-wget -c http://115.236.19.69:3080/snapshot_2022.10.19.car
+wget -c http://115.231.100.47:3080/snapshot_2023.1.3.car
 ```
 
 2. 从快照启动daemon  
