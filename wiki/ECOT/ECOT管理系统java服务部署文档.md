@@ -1,0 +1,14 @@
+## 所需文件
+ ` ecot-admin-1.0.0.jar（java服务）、ecot.sql（数据库脚本）`
+  
+## 安装步骤
+1. 搭建服务器环境
+服务器上安装Jdk1.8、mysql5.7环境、redis环境
+2. mysql新建一个库并在这个库上运行ecot.sql
+3. 部署java服务
+解压jar包，进入BOOT-INF\classes目录，编辑application-prod.properties修改spring.datasource配置MySQL的ip、库名、用户名、密码  修改redis配置的ip、端口、密码
+编辑application.properties修改spring.profiles.active为prod,修改server.port为所需要绑定的socket端口，重新打包为jar包，上传到服务器任意目录，在该jar包的同级目录下执行  `nohup java -jar XXXX.jar & `命令
+4. 停止java服务
+  执行`jps -l`命令，找到对应服务的进程id，执行`kill 进程id`,执行`jps -l`查看进程是否已停止，如果未停止，执行`kill  -9 进程id`
+5. 查看日志
+  在jar包的同级目录下，执行tail -100f nohup.out 查看最新的100行日志记录

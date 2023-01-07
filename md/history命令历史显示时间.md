@@ -1,0 +1,3 @@
+```
+export HISTTIMEFORMAT='%F %T'
+```
