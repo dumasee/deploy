@@ -35,8 +35,9 @@ git init
 git add .
 git commit -m "update"
 git branch -M main
-git remote add github https://github.com/dumasee/deploy.git
-git remote add gitee git@gitee.com:phoebus999/deploy.git
+git remote add github https://github.com/dumasee/deploy.git  #密码方式
+git remote add gitee git@gitee.com:phoebus999/deploy.git   #密钥方式
+git remote add github git@github.com:dumasee/deploy.git   #密钥方式
 git push -u gitee main
 ```
 
